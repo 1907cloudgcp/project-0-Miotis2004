@@ -1,0 +1,16 @@
+bob,pass1,417
+fred,pass2,980
+claire,pass3,456
+anna,pass4,789
+jill,pass5,123
+alicia,pass6,654
+ronnie,pass10,963
+ronnie,pass7,300
+bob,pass1,517
+ronnie,pass7,300
+bob,pass1,497
+bob,pass1,477
+bob,pass1,457
+ronnie,pass7,420
+bob,pass1,420
+bob,pass1,432
