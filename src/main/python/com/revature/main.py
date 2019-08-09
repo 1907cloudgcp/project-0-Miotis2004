@@ -59,6 +59,9 @@ def loop(cust,hist,lastEntry):
                     print('You do not have enough money.')
                 else:
                     intBal = int(balance) - int(amount)
+                    if intBal < 0:
+                        print('You do not have sufficient funds.  Cancelling transaction.')
+                        intBal = int(balance)
                     balance = str(intBal)
                     cust.update({name:{'pswd':pswd,'bal':balance}})
                     
