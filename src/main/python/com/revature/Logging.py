@@ -1,27 +1,22 @@
 import logging
 
-
+class Logging:
     
-def main():
-    simple_logging()
-
-    def simple_logging(lvl,msg):
+   def simple_logging(lvl,msg):
         logger = logging.getLogger('logging')
 
         #Default level is warning
-        logging.basicConfig(level = logging.DEBUG, filename = '/error/errorLog.log')
+        logging.basicConfig(level = logging.DEBUG, filename = 'errorLog.log')
 
         if lvl == 'debug':
-            logger.debug('This is a debug message.  ' + msg)
+            logger.debug('DEBUG:  ' + msg)
         elif lvl == 'info':
-            logger.info('Info is good for people.  ' + msg)
+            logger.info('INFORMATION:  ' + msg)
         elif lvl == 'warning':
-            logger.warning('Rhut-ro! Something\'s happening.  ' + msg)
+            logger.warning('WARNING:  ' + msg)
         elif lvl == 'error':
-            logger.error('Hey, that hurts!  ' + msg)
+            logger.error('ERROR:  ' + msg)
         else:
-            logger.critical('My mama is gonna get you!  ' + msg)
+            logger.critical('CRITICAL:  ' + msg)
 
 
-if __name__ == '__main__':
-            main()

@@ -1,4 +1,4 @@
-
+from Logging import *
 
 class Looper:
     def loggedLoop(cust,hist,lastEntry,name):
@@ -14,7 +14,9 @@ class Looper:
             elif command == 'w':
                 amount = input('Current balance: ' + balance + '  How much to withdraw?  (Whole dollars only): ')
                 if int(amount) > int(balance):
-                    print('You do not have enough money.')
+                    msg = name + ':  Insufficient funds.'
+                    print(msg)
+                    Logging.simple_logging('info',msg)
                 else:
                     intBal = int(balance) - int(amount)
                     balance = str(intBal)
@@ -106,6 +108,9 @@ class Looper:
                     print('Logged in.')
                     isLogged = True
                 else:
+                    msg = name + ':  Authentication failure.'
+                    print(msg)
+                    Logging.simple_logging('info',msg)
                     print('Authentication failure.  Try again.')
                     isLogged = False
             elif logReg == 'q':

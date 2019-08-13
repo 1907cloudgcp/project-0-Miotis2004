@@ -1,4 +1,4 @@
-from Logging import *
+import logging
 
 class Bank:
 
@@ -12,10 +12,11 @@ class Bank:
                     custList[2] = custList[2][:-1]
                     cust.update({custList[0]:{'pswd':custList[1], 'bal':custList[2]}})
         except:
-            
-            msg = 'Could not open customer file.'
+            logger = logging.getLogger('logging')
+            msg = 'Could not open customer file.  Quitting application.'
             print(msg)
-            Logging.simple_logging('error',msg)
+            logging.basicConfig(level = logging.DEBUG, filename = 'errorLog.log')
+            logger.error('Hey, that hurts!  ' + msg)
             exit()
             
             
@@ -39,7 +40,22 @@ class Bank:
         loadedData = [hist, lastEntry]
         return loadedData
 
-    
+    def simpleLogging(lvl,msg):
+        logger = logging.getLogger('logging')
+
+        #Default level is warning
+        logging.basicConfig(level = logging.DEBUG, filename = '/error/errorLog.log')
+
+        if lvl == 'debug':
+            logger.debug('DEBUG:  ' + msg)
+        elif lvl == 'info':
+            logger.info('INFORMATION:  ' + msg)
+        elif lvl == 'warning':
+            logger.warning('WARNING:  ' + msg)
+        elif lvl == 'error':
+            logger.error('ERROR:  ' + msg)
+        else:
+            logger.critical('CRITICAL:  ' + msg)
     
     def __init__(self):
         print('Bank created.')
